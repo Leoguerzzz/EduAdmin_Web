@@ -788,13 +788,10 @@ function renderReportes() {
 
     function toggleSidebar() {
     const sidebar = document.getElementById('sidebar');
-    // Si el menú estaba escondido (fuera de pantalla), lo traemos
-    if (sidebar.style.display === 'none') {
-        sidebar.style.display = 'flex';
-    } else {
-        sidebar.style.display = 'none';
-    }
+    // Si tiene la clase de estar oculto, se la quitamos, si no, se la ponemos
+    sidebar.classList.toggle('-translate-x-full');
 }
+
 
 
 
