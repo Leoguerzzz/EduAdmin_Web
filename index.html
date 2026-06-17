@@ -54,7 +54,7 @@
 <body class="bg-slate-50 font-sans text-slate-800 h-screen flex overflow-hidden">
 
     <!-- Sidebar (Navegación de Dirección) -->
-    <aside class="w-64 md:w-64 bg-primary text-white flex flex-col shadow-xl transition-transform duration-300 z-20 absolute md:relative h-full -ml-64 md:ml-0" id="sidebar">
+    <aside class="w-64 bg-primary text-white flex flex-col shadow-xl z-20 h-screen fixed md:relative" id="sidebar">
         <div class="p-6 flex items-center gap-3 border-b border-blue-800">
             <i class="fa-solid fa-graduation-cap text-2xl text-secondary"></i>
             <div>
@@ -105,9 +105,12 @@
     </aside>
 
     <!-- Main Content -->
-    <main class="flex-1 flex flex-col h-screen relative bg-slate-50/50 w-full overflow-x-hidden">
+    <main class="flex-1 flex flex-col h-screen overflow-hidden bg-slate-50/50 md:ml-0 ml-0">
         <!-- Header -->
         <header class="bg-white shadow-sm px-8 py-4 flex justify-between items-center z-10 border-b border-slate-200">
+            <button class="md:hidden text-primary text-xl mr-4" onclick="toggleSidebar()">
+            <i class="fa-solid fa-bars"></i>
+            </button>
             <h2 id="page-title" class="text-2xl font-bold text-slate-800 tracking-tight">Panel de Control</h2>
             <div class="flex items-center gap-5">
                 <span id="db-status" class="text-xs font-medium px-3 py-1.5 bg-yellow-100 text-yellow-700 rounded-full flex items-center gap-2 shadow-sm border border-yellow-200">
@@ -782,6 +785,16 @@ function renderReportes() {
             rows[i].style.display = rows[i].textContent.toLowerCase().includes(input) ? '' : 'none';
         }
     };
+
+    function toggleSidebar() {
+    const sidebar = document.getElementById('sidebar');
+    // Si el menú estaba escondido (fuera de pantalla), lo traemos
+    if (sidebar.style.display === 'none') {
+        sidebar.style.display = 'flex';
+    } else {
+        sidebar.style.display = 'none';
+    }
+}
 
 
 
