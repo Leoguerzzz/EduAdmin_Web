@@ -620,6 +620,10 @@
             activeBtn.classList.remove('border-transparent', 'text-slate-300');
             activeBtn.classList.add('bg-blue-800', 'border-secondary', 'text-white');
         }
+        const sidebar = document.getElementById('sidebar');
+        if (window.innerWidth < 768) {
+            sidebar.classList.add('-translate-x-full');
+        }
     };
 
     window.openModal = (id) => document.getElementById(id).classList.remove('hidden');
